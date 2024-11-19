@@ -60,8 +60,8 @@ class House:
         if isinstance(value, int):
             self.number_of_floors = self.number_of_floors + value
             return self  #или return House(self.name, self.number_of_floors + value)
-        if isinstance(value, House): #возможность суммировать этажи разных объектов
-            self.number_of_floors = self.number_of_floors + value.number_of_floors  #если это объект класса, то берем значение
+        if isinstance(value, House): #возможность суммировать этажи разных экземпляров
+            self.number_of_floors = self.number_of_floors + value.number_of_floors  #если это экземпляр класса, то берем значение
             return self
 
     def __radd__(self, value):
@@ -94,8 +94,8 @@ print(h1 < h2) # __lt__
 print(h1 <= h2) # __le__
 print(h1 != h2) # __ne__
 
-#проверка add (сумма этажей объектов Класса)
-floors = len(h1) + len(h2) #len - кол-во этажей в объекте
+#проверка add (сумма этажей экземпляров Класса)
+floors = len(h1) + len(h2) #len - кол-во этажей в экземпляре
 h3 = h1 + h2
 print(floors, h3, sep='\n') #хе-хе
 
